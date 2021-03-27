@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>KernelView.qml</file>
+        <file>ControlDrawer.qml</file>
+        <file>ToggleControl.qml</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>kernelborder1024X1024.png</file>
+        <file>drawerhandle1024X1024.png</file>
+        <file>drawerhandle64X64.png</file>
+        <file>enablekernel128X128.png</file>
+        <file>rgb128X128.png</file>
+        <file>live128X128.png</file>
+    </qresource>
+</RCC>

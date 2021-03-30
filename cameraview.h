@@ -34,6 +34,10 @@ class CameraView : public QQuickItem {
 		           READ greyscale
 		           WRITE setGreyscale
 		           NOTIFY greyscaleChanged)
+		Q_PROPERTY(bool flip
+		           READ flip
+		           WRITE setFlip
+		           NOTIFY flipChanged)
 		Q_PROPERTY(bool captureDelta
 		           READ captureDelta
 		           WRITE setCaptureDelta
@@ -74,6 +78,8 @@ class CameraView : public QQuickItem {
 
 		bool greyscale() const;
 		void setGreyscale(bool greyscale);
+		bool flip() const;
+		void setFlip(bool flip);
 		bool captureDelta() const;
 		void setCaptureDelta(bool capture);
 
@@ -110,6 +116,7 @@ class CameraView : public QQuickItem {
 		void liveChanged();
 		void refreshIntervalChanged();
 		void greyscaleChanged();
+		void flipChanged();
 		void captureDeltaChanged();
 		void brightnessChanged();
 		void contrastChanged();
@@ -123,6 +130,7 @@ class CameraView : public QQuickItem {
 		int _timerID = 0;
 		uint _refreshInterval = 0;
 		bool _greyscale = false;
+		bool _flip = false;
 		bool _captureDelta = false;
 		KernelModel *_kernel = nullptr;
 		bool _applyKernel = true;

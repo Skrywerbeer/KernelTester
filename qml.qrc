@@ -12,5 +12,6 @@
         <file>enablekernel128X128.png</file>
         <file>rgb128X128.png</file>
         <file>live128X128.png</file>
+        <file>flip64X64.png</file>
     </qresource>
 </RCC>

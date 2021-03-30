@@ -6,6 +6,7 @@ Item {
     readonly property alias kernelEnabled: kernelSwitch.toggled
     readonly property alias rgbEnabled: rgbSwitch.toggled
     readonly property alias liveEnabled: liveSwitch.toggled
+    readonly property alias flipEnabled: flipSwitch.toggled
 
     width: parent.width
     state: "Closed"
@@ -77,6 +78,10 @@ Item {
         ToggleControl {
             id: kernelSwitch
             iconSource: "qrc:/Images/enablekernel128X128.png"
+        }
+        ToggleControl {
+            id: flipSwitch
+            iconSource: "qrc:/Images/flip64X64.png"
         }
     }
     states: [

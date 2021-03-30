@@ -16,8 +16,9 @@ Window {
         captureWidth: 320
         captureHeight: 240
         greyscale: !controls.rgbEnabled
+        flip: controls.flipEnabled
         applyKernel: controls.kernelEnabled
-        refreshInterval: 200
+        refreshInterval: 20
         live: controls.liveEnabled
 //        captureDelta: true
 //        kernel: kmodel

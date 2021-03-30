@@ -16,15 +16,16 @@ CameraView::~CameraView() {
 void CameraView::captureFrame() {
 	const int ROWS = _newestFrame.rows;
 	const int COLS = _newestFrame.cols;
-	cv::Mat frame;
-	_capture >> frame;
-	cv::flip(frame, frame, 0);
-	if (_captureDelta) {
-		_newestFrame = frame - _newestFrame;
-	}
-	else {
-		_newestFrame = frame;
-	}
+//	cv::Mat frame;
+//	_capture >> frame;
+
+//	if (_captureDelta) {
+//		_newestFrame = frame - _newestFrame;
+//	}
+//	else {
+//		_newestFrame = frame;
+//	}
+	_capture >> _newestFrame;
 	if (_newestFrame.rows != ROWS)
 		emit captureWidthChanged();
 	if (_newestFrame.cols != COLS)
@@ -45,6 +46,8 @@ void CameraView::updateView() {
 	if (!_newestFrame.data)
 		return;
 	cv::Mat frame = _newestFrame.clone();
+	if (_flip)
+		cv::flip(frame, frame, 0);
 	if (_applyKernel)
 		cv::filter2D(frame, frame, frame.depth(), _kernel->mat());
 	if (_greyscale) {
@@ -96,6 +99,18 @@ void CameraView::setGreyscale(bool greyscale) {
 	// TODO: Check camera support for monochrome.
 	//_capture.set(cv::CAP_PROP_MONOCHROME, 1);
 	emit greyscaleChanged();
+	updateView();
+}
+
+bool CameraView::flip() const {
+	return _flip;
+}
+
+void CameraView::setFlip(bool flip) {
+	if (flip == _flip)
+		return;
+	_flip = flip;
+	emit flipChanged();
 	updateView();
 }
 
